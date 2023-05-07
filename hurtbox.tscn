@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7l4gmc1low11"]
+
+[node name="Hurtbox" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+debug_color = Color(0.00392157, 0.635294, 0.415686, 0.419608)
