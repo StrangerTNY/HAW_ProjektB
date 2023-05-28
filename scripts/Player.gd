@@ -2,7 +2,7 @@ extends Area2D
 signal hit
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
-var bullet_path = preload("res://bullet.tscn")
+var bullet_path = preload("res://src/game_objects/bullet.tscn")
 var screen_size # Size of the game window.
 
 func start(pos):

@@ -1,11 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://dmtu2mvdx5pks"]
+[gd_scene load_steps=32 format=3]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_2to74"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_2to74"]
 [ext_resource type="Texture2D" uid="uid://dsifjrbh5acf3" path="res://assets/Meow Knight/Meow-Knight_Attack_1.png" id="1_lt71o"]
 [ext_resource type="Texture2D" uid="uid://dcd8bdfplv7nn" path="res://assets/Meow Knight/Meow-Knight_Death.png" id="2_3qh4k"]
 [ext_resource type="Texture2D" uid="uid://6s2u5i2tpijf" path="res://assets/Meow Knight/Meow-Knight_Idle.png" id="3_llyb0"]
 [ext_resource type="Texture2D" uid="uid://bxjuwhfy4kdmi" path="res://assets/Meow Knight/Meow-Knight_Run.png" id="4_pixo4"]
-[ext_resource type="PackedScene" uid="uid://7l4gmc1low11" path="res://hurtbox.tscn" id="6_5jmod"]
+[ext_resource type="PackedScene" uid="uid://7l4gmc1low11" path="res://src/util/hurtbox.tscn" id="6_5jmod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujvnn"]
 atlas = ExtResource("1_lt71o")

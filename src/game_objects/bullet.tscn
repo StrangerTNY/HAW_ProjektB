@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ghdjl2p58111"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="Script" path="res://Bullet.gd" id="1_xor4m"]
+[ext_resource type="Script" path="res://scripts/Bullet.gd" id="1_xor4m"]
 [ext_resource type="Texture2D" uid="uid://bhskw8im1m7j7" path="res://assets/bullet.png" id="2_4qoi5"]
-[ext_resource type="PackedScene" uid="uid://rf0vqhrj34gn" path="res://hitbox.tscn" id="3_vxpo6"]
-[ext_resource type="PackedScene" uid="uid://7l4gmc1low11" path="res://hurtbox.tscn" id="4_ydkbh"]
+[ext_resource type="PackedScene" path="res://src/util/hitbox.tscn" id="3_vxpo6"]
+[ext_resource type="PackedScene" uid="uid://7l4gmc1low11" path="res://src/util/hurtbox.tscn" id="4_ydkbh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ansh"]
 

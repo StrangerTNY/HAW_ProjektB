@@ -2,9 +2,9 @@ extends Area2D
 
 
 var velocity = Vector2(1, 0)
-@export var speed = 200
+@export var speed = 1000
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():  
 	pass # Replace with function body.
 
 
