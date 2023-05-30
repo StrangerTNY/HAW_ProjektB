@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmug2gir2wrab"]
+
+[ext_resource type="PackedScene" uid="uid://c4muo0hk7vl7x" path="res://src/game_objects/map_2.tscn" id="1_iinrd"]
+[ext_resource type="PackedScene" uid="uid://dbm5xrg348c4t" path="res://src/game_objects/Player_new.tscn" id="2_kbipm"]
+
+[node name="Node" type="Node"]
+
+[node name="map_2" parent="." instance=ExtResource("1_iinrd")]
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(925, 582)
+scale = Vector2(2.5, 2.5)
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Player" parent="." instance=ExtResource("2_kbipm")]
+position = Vector2(925, 582)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")

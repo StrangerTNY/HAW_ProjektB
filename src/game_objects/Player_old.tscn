@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cupsm1qtco0u8"]
+
+[ext_resource type="Script" path="res://scripts/Player_old.gd" id="1_2to74"]
+[ext_resource type="SpriteFrames" uid="uid://dkby1swob37nq" path="res://assets/Player_Animations.tres" id="2_p5lrp"]
+[ext_resource type="PackedScene" uid="uid://7l4gmc1low11" path="res://src/util/hurtbox.tscn" id="6_5jmod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5ohi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xep0o"]
+
+[node name="Player" type="Area2D"]
+position = Vector2(100, 89)
+scale = Vector2(1.5, 1.5)
+collision_mask = 4
+script = ExtResource("1_2to74")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7.62939e-06)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("2_p5lrp")
+animation = &"idle"
+frame_progress = 0.311607
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.33333)
+scale = Vector2(0.92, 1.229)
+shape = SubResource("RectangleShape2D_h5ohi")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(20.658, 0)
+
+[node name="Hurtbox" parent="." instance=ExtResource("6_5jmod")]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+scale = Vector2(0.906, 1.301)
+shape = SubResource("RectangleShape2D_xep0o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="Hurtbox"]

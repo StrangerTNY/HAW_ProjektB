@@ -41,8 +41,6 @@ func _process(delta):
 		
 		
 	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 185, screen_size.y -220)
 	
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "run"
@@ -61,8 +59,8 @@ func shoot():
 	get_parent().add_child(bullet)
 	bullet.position = $Node2D/Marker2D.global_position
 
-func _on_body_entered(body):
-	hide() # Player disappears after being hit.
-	hit.emit()
-	# Must be deferred as we can't change physics properties on a physics callback.
-	$CollisionShape2D.set_deferred("disabled", true) # Replace with function body.
+#func _on_body_entered(body):
+#	hide() # Player disappears after being hit.
+#	hit.emit()
+#	# Must be deferred as we can't change physics properties on a physics callback.
+#	$CollisionShape2D.set_deferred("disabled", true) # Replace with function body.
