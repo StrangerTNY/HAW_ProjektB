@@ -4,6 +4,10 @@ signal hit
 @export var move_speed : float = 130
 var bullet_path = preload("res://src/game_objects/bullet.tscn")
 
+func start(pos):
+	position = pos
+	show()
+	
 func _physics_process(delta):
 	var is_attacking = false
 	var input_direction = Vector2(
@@ -23,9 +27,7 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.play()
 		
-		
-	position += velocity * delta
-	
+
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = "run"
 		$AnimatedSprite2D.flip_v = false
@@ -38,15 +40,15 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.animation = "idle"
 		
+	position += velocity * delta
 	move_and_slide()
-	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		print("I collided with ", collision.get_collider().name)
+		
 func shoot():
 	var bullet = bullet_path.instantiate()
 	get_parent().add_child(bullet)
 	bullet.position = $Node2D/Marker2D.global_position
 	
-#func _on_body_entered(body):
-#	hide() # Player disappears after being hit.
-#	hit.emit()
-#	# Must be deferred as we can't change physics properties on a physics callback.
-#	$CollisionShape2D.set_deferred("disabled", true) # Replace with function body.
+

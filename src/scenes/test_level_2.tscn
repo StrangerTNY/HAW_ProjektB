@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmug2gir2wrab"]
+[gd_scene load_steps=6 format=3 uid="uid://bmug2gir2wrab"]
 
 [ext_resource type="PackedScene" uid="uid://c4muo0hk7vl7x" path="res://src/game_objects/map_2.tscn" id="1_iinrd"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_yucwu"]
 [ext_resource type="PackedScene" uid="uid://dbm5xrg348c4t" path="res://src/game_objects/Player_new.tscn" id="2_kbipm"]
+[ext_resource type="PackedScene" uid="uid://cbev88rlm4dju" path="res://src/game_objects/mob.tscn" id="2_srhgm"]
 
-[node name="Node" type="Node"]
+[sub_resource type="Curve2D" id="Curve2D_nn42f"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 14, 22, 0, 0, 0, 0, 1912, 19, 0, 0, 0, 0, 1908, 1067, 0, 0, 0, 0, 10, 1067, 0, 0, 0, 0, 14, 22)
+}
+point_count = 5
+
+[node name="Main" type="Node"]
+script = ExtResource("1_yucwu")
+mob_scene = ExtResource("2_srhgm")
 
 [node name="map_2" parent="." instance=ExtResource("1_iinrd")]
 metadata/_edit_lock_ = true
@@ -15,8 +25,31 @@ zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
+[node name="MobTimer" type="Timer" parent="."]
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="Player" parent="." instance=ExtResource("2_kbipm")]
 position = Vector2(925, 582)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_nn42f")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(14, 22)
+rotation = -0.00158061
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(925, 580)
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="hit" from="Player" to="." method="game_over"]

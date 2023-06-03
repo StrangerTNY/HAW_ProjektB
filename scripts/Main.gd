@@ -44,11 +44,16 @@ func _on_mob_timer_timeout():
 	# Set the mob's position to a random location.
 	mob.position = mob_spawn_location.position
 
+ # Add some randomness to the direction.
+	direction += randf_range(-PI / 4, PI / 4)
+
 
 	# Choose the velocity for the mob.
-	var velocity = Vector2(randf_range(100.0, 300.0), 0.0)
+	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
-
+	
+#	if(mob.hit_wall):
+#		mob.linear_velocity = mob.linear_velocity * -1
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
 

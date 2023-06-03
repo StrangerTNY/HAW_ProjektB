@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3]
+[gd_scene load_steps=24 format=3 uid="uid://cbev88rlm4dju"]
 
 [ext_resource type="Texture2D" uid="uid://bp8ajjjvwumw3" path="res://assets/slime.png" id="1_ah8ac"]
 [ext_resource type="Script" path="res://scripts/mob.gd" id="1_xchtr"]
@@ -88,7 +88,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -102,7 +102,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hit",
-"speed": 10.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -125,7 +125,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sebkt"]
@@ -137,8 +137,9 @@ animations = [{
 [node name="Mob" type="RigidBody2D"]
 position = Vector2(86, 87)
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_xchtr")
 metadata/_edit_group_ = true
 
@@ -147,7 +148,6 @@ position = Vector2(-0.5, 0)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_sl0tt")
 animation = &"walk"
-frame_progress = 0.681806
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
@@ -171,6 +171,7 @@ shape = SubResource("CircleShape2D_4xb30")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_27nfu")
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
