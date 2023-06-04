@@ -6,7 +6,7 @@ signal slime_shot
 func _ready():
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
-	$DespawnTimer.start()
+	#$DespawnTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,4 +21,5 @@ func _on_hurtbox_area_entered(hitbox):
 	queue_free() 
 
 func _on_despawn_timer_timeout():
-	queue_free()
+	#queue_free()
+	pass

@@ -46,6 +46,7 @@ monitorable = false
 scale = Vector2(0.253, 0.253)
 shape = SubResource("RectangleShape2D_2dm2j")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 

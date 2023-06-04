@@ -2,17 +2,18 @@ extends Node
 
 @export var mob_scene: PackedScene
 var score
-var mobTimer = 3
+var mobTimer = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	new_game()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
+	if(Input.is_action_just_pressed("ui_cancel")):
+		get_tree().change_scene_to_file("res://src/scenes/menu.tscn")
+	
 
 func game_over():
 	$ScoreTimer.stop()
@@ -56,7 +57,7 @@ func _on_mob_timer_timeout():
 
 
 	# Choose the velocity for the mob.
-	var velocity = Vector2(randf_range(150.0, 550.0), 0.0)
+	var velocity = Vector2(randf_range(150.0, 600.0), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 	
 	add_child(mob)

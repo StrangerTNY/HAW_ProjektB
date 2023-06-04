@@ -12,12 +12,13 @@ func _process(delta):
 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://src/scenes/test_level.tscn")
+	get_tree().change_scene_to_file("res://src/scenes/test_level_2.tscn")
 
 
 func _on_control_button_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://src/scenes/controls.tscn")
 
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+

@@ -9,7 +9,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_nn42f"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 55, 43, 0, 0, 0, 0, 1878, 45, 0, 0, 0, 0, 1874, 1038, 0, 0, 0, 0, 44, 1042, 0, 0, 0, 0, 52, 47)
+"points": PackedVector2Array(0, 0, 0, 0, 476, 344, 0, 0, 0, 0, 1332, 346, 0, 0, 0, 0, 1332, 873, 0, 0, 0, 0, 475, 871, 0, 0, 0, 0, 474, 345)
 }
 point_count = 5
 
@@ -46,8 +46,8 @@ remote_path = NodePath("../../Camera2D")
 curve = SubResource("Curve2D_nn42f")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2(55, 43)
-rotation = 0.00109709
+position = Vector2(476, 344)
+rotation = 0.00233644
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(925, 580)
@@ -68,4 +68,3 @@ stream = ExtResource("6_jedvo")
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="start_game" from="HUD" to="." method="new_game"]

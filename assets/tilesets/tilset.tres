@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://bo2u4egmymaon"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://bo2u4egmymaon"]
 
 [ext_resource type="Texture2D" uid="uid://fa178knej0gp" path="res://assets/tilesets/roguelikeSheet_transparent.png" id="1_khn2c"]
 
@@ -16,6 +16,18 @@ tile_data = PackedInt32Array(0, 3473411, 23, 1, 3407875, 23, 2, 3473411, 23, 3, 
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_wgmlj"]
 tile_data = PackedInt32Array(0, 3407875, 23, 1, 3473411, 23, 2, 3407875, 23, 3, 3473411, 23)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_tpqqo"]
+tile_data = PackedInt32Array(0, 131075, 6, 65536, 131075, 7, 131072, 131075, 8, 1, 196611, 6, 65537, 196611, 7, 131073, 196611, 8, 2, 262147, 6, 65538, 262147, 7, 131074, 262147, 8)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_4hnc1"]
+tile_data = PackedInt32Array(0, 131075, 9, 65536, 131075, 10, 131072, 131075, 11, 1, 196611, 9, 65537, 196611, 10, 131073, 196611, 11, 2, 262147, 9, 65538, 262147, 10, 131074, 262147, 11)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_dkik3"]
+tile_data = PackedInt32Array(0, 1048579, 10, 65536, 1048579, 11)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_p0rgt"]
+tile_data = PackedInt32Array(0, 983043, 10, 65536, 983043, 11)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0wfy8"]
 
@@ -5341,3 +5353,7 @@ pattern_1 = SubResource("TileMapPattern_ayk7a")
 pattern_2 = SubResource("TileMapPattern_uqb30")
 pattern_3 = SubResource("TileMapPattern_l2bv4")
 pattern_4 = SubResource("TileMapPattern_wgmlj")
+pattern_5 = SubResource("TileMapPattern_tpqqo")
+pattern_6 = SubResource("TileMapPattern_4hnc1")
+pattern_7 = SubResource("TileMapPattern_dkik3")
+pattern_8 = SubResource("TileMapPattern_p0rgt")
