@@ -2,10 +2,11 @@ extends Node
 
 @export var mob_scene: PackedScene
 var score
+var mobTimer = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	new_game() 
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,17 +17,23 @@ func _process(delta):
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
-
+	$HUD.show_game_over()
+	$DeathSound.play()
+	
 func new_game():
 	score = 0
-	$Player.start($StartPosition.position)
+	$Player.start($StartPosition2.position)
 	$StartTimer.start()
-
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready")	
+	get_tree().call_group("mobs", "queue_free")
 
 func _on_score_timer_timeout():
 	score += 1
+	$HUD.update_score(score)
 
 func _on_start_timer_timeout():
+	$MobTimer.set_wait_time(mobTimer)
 	$MobTimer.start()
 	$ScoreTimer.start()
 	
@@ -49,11 +56,17 @@ func _on_mob_timer_timeout():
 
 
 	# Choose the velocity for the mob.
-	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+	var velocity = Vector2(randf_range(150.0, 550.0), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 	
-#	if(mob.hit_wall):
-#		mob.linear_velocity = mob.linear_velocity * -1
-	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+	
+	#TODO score wird hochgezählt obwohl kein slime angeschossen wurde
+	if(mob.slime_shot):
+		score += 3
+		$HUD.update_score(score)
 
+func _on_spawn_timer_timeout():
+	if(mobTimer > 0.1):
+		mobTimer =- 0.1
+		$MobTimer.set_wait_time(mobTimer)

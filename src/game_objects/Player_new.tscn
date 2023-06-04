@@ -8,7 +8,7 @@
 size = Vector2(12, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7dpr"]
-size = Vector2(12.5092, 11.7858)
+size = Vector2(12.4356, 11.7578)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(149, 60)
@@ -36,8 +36,10 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(0, -1)
-scale = Vector2(0.906, 1.301)
+position = Vector2(0.0333328, -1.02459)
+scale = Vector2(1, 1.399)
 shape = SubResource("RectangleShape2D_f7dpr")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="Hurtbox"]

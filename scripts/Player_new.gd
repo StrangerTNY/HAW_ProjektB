@@ -7,6 +7,7 @@ var bullet_path = preload("res://src/game_objects/bullet.tscn")
 func start(pos):
 	position = pos
 	show()
+	$CollisionShape2D.disabled = false
 	
 func _physics_process(delta):
 	var is_attacking = false
@@ -42,13 +43,20 @@ func _physics_process(delta):
 		
 	position += velocity * delta
 	move_and_slide()
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		print("I collided with ", collision.get_collider().name)
-		
+#	
+	
+	$Node2D.look_at(get_global_mouse_position())
 func shoot():
 	var bullet = bullet_path.instantiate()
 	get_parent().add_child(bullet)
 	bullet.position = $Node2D/Marker2D.global_position
-	
+	bullet.velocity = get_global_mouse_position() - bullet.position 
 
+func _on_hurtbox_area_entered(area):
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if(collision.get_collider().name.contains("Mob")):
+			hide()
+			hit.emit()
+			$CollisionShape2D.set_deferred(&"disabled", true)
+			
