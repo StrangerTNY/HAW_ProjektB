@@ -1,25 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=27 format=3 uid="uid://dkby1swob37nq"]
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://dkby1swob37nq"]
 
-[ext_resource type="Texture2D" uid="uid://dsifjrbh5acf3" path="res://assets/Meow Knight/Meow-Knight_Attack_1.png" id="1_y6mie"]
 [ext_resource type="Texture2D" uid="uid://dcd8bdfplv7nn" path="res://assets/Meow Knight/Meow-Knight_Death.png" id="2_wt74o"]
 [ext_resource type="Texture2D" uid="uid://6s2u5i2tpijf" path="res://assets/Meow Knight/Meow-Knight_Idle.png" id="3_nm66r"]
 [ext_resource type="Texture2D" uid="uid://bxjuwhfy4kdmi" path="res://assets/Meow Knight/Meow-Knight_Run.png" id="4_ydbjd"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujvnn"]
-atlas = ExtResource("1_y6mie")
-region = Rect2(0, 137, 32, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4yco3"]
-atlas = ExtResource("1_y6mie")
-region = Rect2(0, 212, 32, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uoxdo"]
-atlas = ExtResource("1_y6mie")
-region = Rect2(0, 187, 32, 25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_00qbc"]
-atlas = ExtResource("1_y6mie")
-region = Rect2(0, 162, 32, 25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npabu"]
 atlas = ExtResource("2_wt74o")
@@ -97,23 +80,6 @@ region = Rect2(0, 207, 16, 23)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ujvnn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4yco3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uoxdo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_00qbc")
-}],
-"loop": true,
-"name": &"attack",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_npabu")
 }, {
 "duration": 1.0,
@@ -179,5 +145,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 8.0
+"speed": 12.0
 }]

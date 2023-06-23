@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://my0xxgamnocp"
-path="res://.godot/imported/Xolonium-Regular.ttf-019a410794f70e8830282781b6a19e7a.fontdata"
+uid="uid://da6y3op7nmuaw"
+path="res://.godot/imported/CatCafe.ttf-eabcb6b30bbb63e5aa8f2d2bed428f46.fontdata"
 
 [deps]
 
-source_file="res://assets/Xolonium-Regular.ttf"
-dest_files=["res://.godot/imported/Xolonium-Regular.ttf-019a410794f70e8830282781b6a19e7a.fontdata"]
+source_file="res://assets/CatCafe.ttf"
+dest_files=["res://.godot/imported/CatCafe.ttf-eabcb6b30bbb63e5aa8f2d2bed428f46.fontdata"]
 
 [params]
 

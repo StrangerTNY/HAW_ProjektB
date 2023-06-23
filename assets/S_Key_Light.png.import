@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c17thbeehdep"
-path="res://.godot/imported/g14245.png-0689e2ec29371022e6b7bc77bd88a481.ctex"
+uid="uid://0uypdmxlkfi5"
+path="res://.godot/imported/S_Key_Light.png-ae64c3fd8c66c5b3ca15e24a1ca5109b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/g14245.png"
-dest_files=["res://.godot/imported/g14245.png-0689e2ec29371022e6b7bc77bd88a481.ctex"]
+source_file="res://assets/S_Key_Light.png"
+dest_files=["res://.godot/imported/S_Key_Light.png-ae64c3fd8c66c5b3ca15e24a1ca5109b.ctex"]
 
 [params]
 

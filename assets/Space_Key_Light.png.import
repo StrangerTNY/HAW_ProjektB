@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfwg21ufkaq1y"
-path="res://.godot/imported/slimes.png-919ef08209e14457382f30e3d1b091fc.ctex"
+uid="uid://dwm3y8qcorkxu"
+path="res://.godot/imported/Space_Key_Light.png-e245c16f629a1bfc2bd7ffb558253dfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/slimes.png"
-dest_files=["res://.godot/imported/slimes.png-919ef08209e14457382f30e3d1b091fc.ctex"]
+source_file="res://assets/Space_Key_Light.png"
+dest_files=["res://.godot/imported/Space_Key_Light.png-e245c16f629a1bfc2bd7ffb558253dfc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqi70meoh2cpg"
-path="res://.godot/imported/g14209.png-b1e50cf590ca25db1f074071d3b1a358.ctex"
+uid="uid://bgrftygdkdko1"
+path="res://.godot/imported/W_Key_Light.png-97850b801f5128617d3e014e076189d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/g14209.png"
-dest_files=["res://.godot/imported/g14209.png-b1e50cf590ca25db1f074071d3b1a358.ctex"]
+source_file="res://assets/W_Key_Light.png"
+dest_files=["res://.godot/imported/W_Key_Light.png-97850b801f5128617d3e014e076189d1.ctex"]
 
 [params]
 

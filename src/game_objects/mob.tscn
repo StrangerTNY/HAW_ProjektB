@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cbev88rlm4dju"]
+[gd_scene load_steps=24 format=3 uid="uid://cbev88rlm4dju"]
 
 [ext_resource type="Texture2D" uid="uid://bp8ajjjvwumw3" path="res://assets/slime.png" id="1_ah8ac"]
 [ext_resource type="Script" path="res://scripts/mob.gd" id="1_xchtr"]
@@ -31,10 +31,6 @@ region = Rect2(128, 128, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1utd"]
 atlas = ExtResource("1_ah8ac")
 region = Rect2(160, 128, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eo1yf"]
-atlas = ExtResource("1_ah8ac")
-region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_il6ms"]
 atlas = ExtResource("1_ah8ac")
@@ -91,12 +87,9 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eo1yf")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_il6ms")
 }, {
@@ -128,7 +121,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sebkt"]
@@ -154,7 +147,6 @@ position = Vector2(-0.249998, 0)
 scale = Vector2(1.48437, 1.5)
 sprite_frames = SubResource("SpriteFrames_sl0tt")
 animation = &"walk"
-frame_progress = 0.945199
 
 [node name="Hitbox" parent="." instance=ExtResource("3_4hx6h")]
 collision_layer = 2
@@ -177,12 +169,8 @@ shape = SubResource("CircleShape2D_4xb30")
 scale = Vector2(1.252, 1.252)
 shape = SubResource("CircleShape2D_27nfu")
 
-[node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 10.0
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
 
 [editable path="Hitbox"]
 [editable path="Hurtbox"]

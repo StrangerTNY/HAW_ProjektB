@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqipkgs56b7uh"
-path="res://.godot/imported/g14216.png-c4e0aff79175dbde7bc527bfc0075457.ctex"
+uid="uid://5fq4aqfxpy17"
+path="res://.godot/imported/angle-rightsolid.png-3014a1d4b814519478545e88bdb7dc6b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/g14216.png"
-dest_files=["res://.godot/imported/g14216.png-c4e0aff79175dbde7bc527bfc0075457.ctex"]
+source_file="res://assets/angle-rightsolid.png"
+dest_files=["res://.godot/imported/angle-rightsolid.png-3014a1d4b814519478545e88bdb7dc6b.ctex"]
 
 [params]
 

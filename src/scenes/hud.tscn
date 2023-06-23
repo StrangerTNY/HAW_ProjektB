@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://drtlifswqj10t"]
+[gd_scene load_steps=6 format=3 uid="uid://drtlifswqj10t"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_ltj7t"]
-[ext_resource type="FontFile" uid="uid://my0xxgamnocp" path="res://assets/Xolonium-Regular.ttf" id="1_x37jg"]
+[ext_resource type="FontFile" uid="uid://da6y3op7nmuaw" path="res://assets/CatCafe.ttf" id="2_7oi35"]
+[ext_resource type="AudioStream" uid="uid://bj8o071oc8x85" path="res://assets/SFX_UI_Exit.wav" id="3_3yne0"]
+[ext_resource type="AudioStream" uid="uid://pabqp0rou2rj" path="res://assets/SFX_UI_Confirm.wav" id="4_u6073"]
+[ext_resource type="AudioStream" uid="uid://brb7c36381epj" path="res://assets/SFX_UI_Resume.wav" id="5_3cdf1"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_ltj7t")
@@ -14,7 +17,7 @@ offset_left = -22.5
 offset_right = 22.5
 offset_bottom = 81.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_x37jg")
+theme_override_fonts/font = ExtResource("2_7oi35")
 theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
@@ -26,13 +29,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -476.5
-offset_top = -151.0
-offset_right = 476.5
-offset_bottom = -70.0
+offset_left = -476.0
+offset_top = -290.0
+offset_right = 477.0
+offset_bottom = -209.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_x37jg")
+theme_override_fonts/font = ExtResource("2_7oi35")
 theme_override_font_sizes/font_size = 64
 text = "Dodge and shoot the slimes!"
 horizontal_alignment = 1
@@ -40,7 +43,167 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="MessageTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
+[node name="Endcard" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -300.0
+offset_right = 196.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="FinalScore" type="Label" parent="Endcard"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_7oi35")
+theme_override_font_sizes/font_size = 64
+text = "Score: 
+0"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Endcard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_7oi35")
+theme_override_font_sizes/font_size = 64
+text = "Restart"
+
+[node name="QuitButton" type="Button" parent="Endcard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = 49.0
+offset_right = 106.5
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_7oi35")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[node name="QuitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3yne0")
+
+[node name="ConfirmSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_u6073")
+
+[node name="ResumeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3cdf1")
+
+[node name="Pausescreen" type="Panel" parent="."]
+process_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -300.0
+offset_right = 196.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Pause" type="Label" parent="Pausescreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.0
+offset_right = 85.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_7oi35")
+theme_override_font_sizes/font_size = 64
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Pausescreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -131.0
+offset_right = 116.0
+offset_bottom = -50.9998
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_7oi35")
+theme_override_font_sizes/font_size = 64
+text = "Resume"
+
+[node name="BackToMenu" type="Button" parent="Pausescreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -40.0
+offset_right = 116.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_7oi35")
+theme_override_font_sizes/font_size = 64
+text = "Menu
+"
+
+[node name="QuitButton" type="Button" parent="Pausescreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = 49.0
+offset_right = 116.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_7oi35")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="pressed" from="Endcard/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Endcard/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Pausescreen/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Pausescreen/BackToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="Pausescreen/QuitButton" to="." method="_on_quit_button_pressed"]

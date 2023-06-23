@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0wftjl4k16dd"
-path="res://.godot/imported/g14228.png-29cf9baaa1484b99d145e58054266d1f.ctex"
+uid="uid://f7rhjabao84k"
+path="res://.godot/imported/Mouse_Simple_Key_Light.png-dd9790301847ed8261405ada5418f356.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/g14228.png"
-dest_files=["res://.godot/imported/g14228.png-29cf9baaa1484b99d145e58054266d1f.ctex"]
+source_file="res://assets/Mouse_Simple_Key_Light.png"
+dest_files=["res://.godot/imported/Mouse_Simple_Key_Light.png-dd9790301847ed8261405ada5418f356.ctex"]
 
 [params]
 

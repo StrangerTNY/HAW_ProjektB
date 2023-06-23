@@ -12,13 +12,14 @@ func _process(delta):
 
 
 func _on_start_button_pressed():
+	$ConfirmSound.play()
+	await get_tree().create_timer(0.35).timeout
 	get_tree().change_scene_to_file("res://src/scenes/test_level_2.tscn")
 
 
-func _on_control_button_pressed():
-	get_tree().change_scene_to_file("res://src/scenes/controls.tscn")
-
 
 func _on_quit_button_pressed():
+	$QuitSound.play()
+	await get_tree().create_timer(0.4).timeout
 	get_tree().quit()
 

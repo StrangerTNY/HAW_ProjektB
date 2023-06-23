@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbm5xrg348c4t"]
+[gd_scene load_steps=7 format=3 uid="uid://dbm5xrg348c4t"]
 
 [ext_resource type="SpriteFrames" uid="uid://dkby1swob37nq" path="res://assets/Player_Animations.tres" id="1_38ser"]
 [ext_resource type="Script" path="res://scripts/Player_new.gd" id="1_ci5ib"]
+[ext_resource type="Texture2D" uid="uid://5fq4aqfxpy17" path="res://assets/angle-rightsolid.png" id="4_1g4t2"]
 [ext_resource type="PackedScene" uid="uid://7l4gmc1low11" path="res://src/util/hurtbox.tscn" id="6_2g8km"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5r0f8"]
-size = Vector2(12, 16)
+size = Vector2(12, 20.6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f7dpr"]
-size = Vector2(12.4356, 11.7578)
+size = Vector2(12.5845, 15.1888)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(149, 60)
@@ -18,12 +19,15 @@ platform_wall_layers = 4
 script = ExtResource("1_ci5ib")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(-1.90735e-06, 1.2)
+scale = Vector2(0.9625, 1)
 sprite_frames = ExtResource("1_38ser")
 animation = &"run"
+frame_progress = 0.578732
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, 1.3)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5r0f8")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -36,9 +40,15 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(0.0333328, -1.02459)
+position = Vector2(3.8147e-06, 1.2)
 scale = Vector2(1, 1.399)
 shape = SubResource("RectangleShape2D_f7dpr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.32549)
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("4_1g4t2")
+offset = Vector2(1000, 0)
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 

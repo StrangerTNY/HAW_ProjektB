@@ -11,9 +11,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(Input.is_action_just_pressed("ui_cancel")):
-		get_tree().change_scene_to_file("res://src/scenes/menu.tscn")
-	
+	if(Input.is_action_just_pressed("Pause")):
+		$PauseSound.play()
+		await get_tree().create_timer(0.3).timeout
+		get_tree().paused = true
+		$HUD.showPausescreen()
 
 func game_over():
 	$ScoreTimer.stop()
@@ -22,16 +24,14 @@ func game_over():
 	$DeathSound.play()
 	
 func new_game():
-	score = 0
 	$Player.start($StartPosition2.position)
 	$StartTimer.start()
-	$HUD.update_score(score)
-	$HUD.show_message("Get Ready")	
+	$HUD.show_message("Dodge and defeat the slimes to earn a high score!")	
 	get_tree().call_group("mobs", "queue_free")
 
 func _on_score_timer_timeout():
-	score += 1
-	$HUD.update_score(score)
+	Global.score += 1
+	$HUD.update_score(Global.score)
 
 func _on_start_timer_timeout():
 	$MobTimer.set_wait_time(mobTimer)
@@ -57,17 +57,9 @@ func _on_mob_timer_timeout():
 
 
 	# Choose the velocity for the mob.
-	var velocity = Vector2(randf_range(150.0, 600.0), 0.0)
+	var velocity = Vector2(randf_range(200.0, 600.0), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 	
 	add_child(mob)
-	
-	#TODO score wird hochgezählt obwohl kein slime angeschossen wurde
-	if(mob.slime_shot):
-		score += 3
-		$HUD.update_score(score)
 
-func _on_spawn_timer_timeout():
-	if(mobTimer > 0.1):
-		mobTimer =- 0.1
-		$MobTimer.set_wait_time(mobTimer)
+

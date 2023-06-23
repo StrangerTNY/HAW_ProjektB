@@ -3,11 +3,14 @@ signal hit
 
 @export var move_speed : float = 130
 var bullet_path = preload("res://src/game_objects/bullet.tscn")
+var is_dead
 
 func start(pos):
 	position = pos
+	Global.score = 0
 	show()
 	$CollisionShape2D.disabled = false
+	$Sprite2D.look_at(get_global_mouse_position())
 	
 func _physics_process(delta):
 	var is_attacking = false
@@ -23,8 +26,6 @@ func _physics_process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * move_speed
 		$AnimatedSprite2D.play()
-	elif is_attacking == true:
-		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.play()
 		
@@ -36,14 +37,16 @@ func _physics_process(delta):
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "run"
-	elif is_attacking == true:
-		$AnimatedSprite2D.animation = "attack"
+	elif is_dead:
+		$AnimatedSprite2D.animation = "death"
 	else:
 		$AnimatedSprite2D.animation = "idle"
-		
+	
+	
 	position += velocity * delta
 	move_and_slide()
 #	
+	$Sprite2D.look_at(get_global_mouse_position())
 	
 	$Node2D.look_at(get_global_mouse_position())
 func shoot():
@@ -56,7 +59,8 @@ func _on_hurtbox_area_entered(area):
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if(collision.get_collider().name.contains("Mob")):
-			hide()
-			hit.emit()
 			$CollisionShape2D.set_deferred(&"disabled", true)
-			
+			is_dead = true
+			hit.emit()
+			await get_tree().create_timer(0.7).timeout
+			queue_free() 

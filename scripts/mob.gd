@@ -1,25 +1,26 @@
 extends RigidBody2D
-signal hit_wall
-signal slime_shot
 
+var got_shot = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
-	#$DespawnTimer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-
+	if(got_shot):
+		$AnimatedSprite2D.animation = "death"
+		$AnimatedSprite2D.play()
+		
 
 
 func _on_hurtbox_area_entered(hitbox):
 	if(hitbox.name.contains("Bullet")):
-		slime_shot.emit()
-	queue_free() 
+		Global.score += 2
+		got_shot = true
+		$CollisionShape2D.set_deferred(&"disabled", true)
+		await get_tree().create_timer(0.5).timeout
+		queue_free()
+		
+		
 
-func _on_despawn_timer_timeout():
-	#queue_free()
-	pass

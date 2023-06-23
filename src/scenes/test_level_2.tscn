@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmug2gir2wrab"]
+[gd_scene load_steps=9 format=3 uid="uid://bmug2gir2wrab"]
 
 [ext_resource type="PackedScene" uid="uid://c4muo0hk7vl7x" path="res://src/game_objects/map_2.tscn" id="1_iinrd"]
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_yucwu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cbev88rlm4dju" path="res://src/game_objects/mob.tscn" id="2_srhgm"]
 [ext_resource type="PackedScene" uid="uid://drtlifswqj10t" path="res://src/scenes/hud.tscn" id="5_c8xs3"]
 [ext_resource type="AudioStream" uid="uid://bfjunasycvof1" path="res://assets/pixel-death-66829.mp3" id="6_jedvo"]
+[ext_resource type="AudioStream" uid="uid://cj5iymrbxa1y5" path="res://assets/SFX_UI_Pause.wav" id="7_10fey"]
 
 [sub_resource type="Curve2D" id="Curve2D_nn42f"]
 _data = {
@@ -23,17 +24,17 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(925, 582)
 scale = Vector2(2.5, 2.5)
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 1.452
+wait_time = 1.5
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
 [node name="StartTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 
 [node name="Player" parent="." instance=ExtResource("2_kbipm")]
@@ -63,8 +64,10 @@ position = Vector2(945, 556)
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_jedvo")
 
+[node name="PauseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_10fey")
+
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
