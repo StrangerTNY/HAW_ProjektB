@@ -1,15 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dptpgalu5djnx"]
+[gd_scene load_steps=6 format=3 uid="uid://dptpgalu5djnx"]
 
 [ext_resource type="Script" path="res://scripts/Bullet.gd" id="1_xor4m"]
-[ext_resource type="Texture2D" uid="uid://bhskw8im1m7j7" path="res://assets/bullet.png" id="2_4qoi5"]
-[ext_resource type="PackedScene" path="res://src/util/hitbox.tscn" id="3_vxpo6"]
+[ext_resource type="Texture2D" uid="uid://dn0xvrkh6orv8" path="res://assets/blobfish.png" id="2_iykos"]
 [ext_resource type="PackedScene" uid="uid://7l4gmc1low11" path="res://src/util/hurtbox.tscn" id="4_ydkbh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ansh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ujjn"]
+size = Vector2(34.8432, 27.8746)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dm2j"]
+size = Vector2(39.5257, 31.6206)
 
 [node name="Bullet" type="Area2D"]
 position = Vector2(41, 12)
@@ -23,19 +22,12 @@ scale = Vector2(0.287, 0.287)
 shape = SubResource("RectangleShape2D_2ansh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.047)
-texture = ExtResource("2_4qoi5")
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_iykos")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
-[node name="Hitbox" parent="." instance=ExtResource("3_vxpo6")]
-collision_layer = 8
-collision_mask = 2
-monitoring = false
-
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-scale = Vector2(0.248, 0.248)
-shape = SubResource("RectangleShape2D_5ujjn")
+position = Vector2(2.14577e-06, 1.19209e-07)
+scale = Vector2(0.5, 0.4)
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_ydkbh")]
 collision_layer = 8
@@ -50,5 +42,4 @@ shape = SubResource("RectangleShape2D_2dm2j")
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
-[editable path="Hitbox"]
 [editable path="Hurtbox"]

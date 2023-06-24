@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://cbev88rlm4dju"]
+[gd_scene load_steps=25 format=3 uid="uid://cbev88rlm4dju"]
 
 [ext_resource type="Texture2D" uid="uid://bp8ajjjvwumw3" path="res://assets/slime.png" id="1_ah8ac"]
 [ext_resource type="Script" path="res://scripts/mob.gd" id="1_xchtr"]
 [ext_resource type="PackedScene" path="res://src/util/hitbox.tscn" id="3_4hx6h"]
 [ext_resource type="PackedScene" uid="uid://7l4gmc1low11" path="res://src/util/hurtbox.tscn" id="3_nxa87"]
+[ext_resource type="AudioStream" uid="uid://dktvqoefbfo51" path="res://assets/486506__konstati__slime-monster-noises.wav" id="5_75ofg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_247kk"]
 bounce = 10.0
@@ -125,10 +126,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sebkt"]
+radius = 7.6746
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4xb30"]
+radius = 8.36502
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_27nfu"]
+radius = 7.1885
 
 [node name="Mob" type="RigidBody2D" groups=["mobs"]]
 position = Vector2(86, 87)
@@ -144,7 +148,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.249998, 0)
-scale = Vector2(1.48437, 1.5)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_sl0tt")
 animation = &"walk"
 
@@ -169,7 +173,10 @@ shape = SubResource("CircleShape2D_4xb30")
 scale = Vector2(1.252, 1.252)
 shape = SubResource("CircleShape2D_27nfu")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_75ofg")
+bus = &"SFX"
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 
 [editable path="Hitbox"]

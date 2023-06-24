@@ -21,6 +21,13 @@ func show_message(text):
 	$Message.show()
 	$MessageTimer.start()
 
+func show_startscreen(text):
+	$StartScreen/Message.text = text
+	$StartScreen.show()
+	$StartScreen/Slime.play("walk")
+	$StartScreen/Slime2.play("walk")
+	$MessageTimer.start()
+	
 func show_game_over():
 	show_message("Game Over")
 	# Wait until the MessageTimer has counted down.
@@ -32,6 +39,9 @@ func show_game_over():
 	
 	
 func _on_message_timer_timeout():
+	$StartScreen.hide()
+	$StartScreen/Slime.stop()
+	$StartScreen/Slime2.stop()
 	$Message.hide()
 
 

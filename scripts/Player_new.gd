@@ -18,7 +18,8 @@ func _physics_process(delta):
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	)
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and $ShootCooldown.is_stopped() or Input.is_action_pressed("attack") and $ShootCooldown.is_stopped():
+		$ShootSound.play()
 		shoot()
 	
 	velocity = input_direction * move_speed
@@ -54,13 +55,12 @@ func shoot():
 	get_parent().add_child(bullet)
 	bullet.position = $Node2D/Marker2D.global_position
 	bullet.velocity = get_global_mouse_position() - bullet.position 
+	$ShootCooldown.start()
 
 func _on_hurtbox_area_entered(area):
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		if(collision.get_collider().name.contains("Mob")):
-			$CollisionShape2D.set_deferred(&"disabled", true)
-			is_dead = true
-			hit.emit()
-			await get_tree().create_timer(0.7).timeout
-			queue_free() 
+	if(area.name == "Hitbox"):
+		$CollisionShape2D.set_deferred(&"disabled", true)
+		is_dead = true
+		hit.emit()
+		await get_tree().create_timer(0.7).timeout
+		queue_free() 

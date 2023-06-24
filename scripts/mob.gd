@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var got_shot = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.animation = "walk"
@@ -11,16 +12,18 @@ func _process(delta):
 	if(got_shot):
 		$AnimatedSprite2D.animation = "death"
 		$AnimatedSprite2D.play()
-		
+	
+	print(self.linear_velocity.normalized() <= Vector2(0,0))
 
 
 func _on_hurtbox_area_entered(hitbox):
 	if(hitbox.name.contains("Bullet")):
 		Global.score += 2
-		got_shot = true
 		$CollisionShape2D.set_deferred(&"disabled", true)
+		got_shot = true
+		$DeathSound.play()
 		await get_tree().create_timer(0.5).timeout
 		queue_free()
-		
+
 		
 
