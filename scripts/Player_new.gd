@@ -4,6 +4,7 @@ signal hit
 @export var move_speed : float = 130
 var bullet_path = preload("res://src/game_objects/bullet.tscn")
 var is_dead
+var is_moving
 
 func start(pos):
 	position = pos
@@ -26,18 +27,17 @@ func _physics_process(delta):
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * move_speed
-		$AnimatedSprite2D.play()
+		is_moving = true
 	else:
-		$AnimatedSprite2D.play()
+		is_moving = false
 		
-
+	if(is_moving):
+		$AnimatedSprite2D.play("run")
+		
 	if velocity.x != 0:
-		$AnimatedSprite2D.animation = "run"
 		$AnimatedSprite2D.flip_v = false
 	# See the note below about boolean assignment.
 		$AnimatedSprite2D.flip_h = velocity.x < 0
-	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = "run"
 	elif is_dead:
 		$AnimatedSprite2D.animation = "death"
 	else:
@@ -62,5 +62,5 @@ func _on_hurtbox_area_entered(area):
 		$CollisionShape2D.set_deferred(&"disabled", true)
 		is_dead = true
 		hit.emit()
-		await get_tree().create_timer(0.7).timeout
+		await get_tree().create_timer(0.8).timeout
 		queue_free() 

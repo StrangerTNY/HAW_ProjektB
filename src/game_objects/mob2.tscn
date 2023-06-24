@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://bi62hc15mc8xs"]
+[gd_scene load_steps=25 format=3 uid="uid://bi62hc15mc8xs"]
 
 [ext_resource type="Script" path="res://scripts/mob2.gd" id="1_iutd5"]
 [ext_resource type="Texture2D" uid="uid://bp8ajjjvwumw3" path="res://assets/slime.png" id="2_8c72a"]
 [ext_resource type="PackedScene" path="res://src/util/hitbox.tscn" id="3_oqqsh"]
 [ext_resource type="PackedScene" uid="uid://7l4gmc1low11" path="res://src/util/hurtbox.tscn" id="4_tydto"]
+[ext_resource type="AudioStream" uid="uid://dktvqoefbfo51" path="res://assets/486506__konstati__slime-monster-noises.wav" id="5_38568"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_247kk"]
 bounce = 10.0
@@ -172,6 +173,11 @@ shape = SubResource("CircleShape2D_4xb30")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.252, 1.252)
 shape = SubResource("CircleShape2D_27nfu")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_38568")
+pitch_scale = 0.5
+bus = &"SFX"
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 

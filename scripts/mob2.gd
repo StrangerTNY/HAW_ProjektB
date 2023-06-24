@@ -15,10 +15,11 @@ func _process(delta):
 
 func _on_hurtbox_area_entered(hitbox):
 	if(hitbox.name.contains("Bullet")):
-		if(hp <= 0):
+		if(hp <= 1):
 			Global.score += 5
 			$CollisionShape2D.set_deferred(&"disabled", true)
 			got_shot = true
+			$DeathSound.play()
 			await get_tree().create_timer(0.5).timeout
 			queue_free()
 	hp -= 1

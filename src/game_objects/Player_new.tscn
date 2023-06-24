@@ -23,8 +23,8 @@ script = ExtResource("1_ci5ib")
 position = Vector2(-1.90735e-06, 1.2)
 scale = Vector2(0.2, 0.2)
 sprite_frames = ExtResource("1_38ser")
-animation = &"death"
-frame_progress = 0.523133
+animation = &"run"
+frame_progress = 0.407239
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.2)
@@ -56,7 +56,7 @@ one_shot = true
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_lxa42")
-volume_db = -25.0
+volume_db = -15.0
 bus = &"SFX"
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

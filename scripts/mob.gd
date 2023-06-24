@@ -13,7 +13,6 @@ func _process(delta):
 		$AnimatedSprite2D.animation = "death"
 		$AnimatedSprite2D.play()
 	
-	print(self.linear_velocity.normalized() <= Vector2(0,0))
 
 
 func _on_hurtbox_area_entered(hitbox):
