@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="HAW_ProjektB"
+config/name="Cat&Slimes"
 run/main_scene="res://src/scenes/menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon2.svg"
 
 [autoload]
 
